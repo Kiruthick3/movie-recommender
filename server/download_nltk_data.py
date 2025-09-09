@@ -2,7 +2,7 @@ import nltk
 import os
 
 nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
-nltk.data.path.append(nltk_data_path)
+nltk.data.path.insert(0, nltk_data_path)
 
 try:
     nltk.corpus.wordnet.ensure_loaded()
