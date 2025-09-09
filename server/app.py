@@ -15,23 +15,13 @@ nltk.data.path.insert(0, nltk_data_path)
 
 try:
     nltk.corpus.wordnet.ensure_loaded()
-except LookupError:
-    raise RuntimeError("NLTK wordnet not found in nltk_data folder")
-    
-try:
     nltk.data.find('sentiment/vader_lexicon')
 except LookupError:
-    raise RuntimeError("NLTK vader_lexicon not found in nltk_data folder")
+    raise RuntimeError(
+        "NLTK corpora not found in server/nltk_data folder. "
+        "Make sure 'wordnet' and 'vader_lexicon' are present."
+    )
 
-try:
-    nltk.corpus.wordnet.ensure_loaded()
-except LookupError:
-    nltk.download('wordnet', download_dir=nltk_data_path)
-
-try:
-    nltk.data.find('sentiment/vader_lexicon')
-except LookupError:
-    nltk.download('vader_lexicon', download_dir=nltk_data_path)
 
 def create_app():
     app = Flask(__name__)
