@@ -16,6 +16,16 @@ nltk.data.path.insert(0, nltk_data_path)
 try:
     nltk.corpus.wordnet.ensure_loaded()
 except LookupError:
+    raise RuntimeError("NLTK wordnet not found in nltk_data folder")
+    
+try:
+    nltk.data.find('sentiment/vader_lexicon')
+except LookupError:
+    raise RuntimeError("NLTK vader_lexicon not found in nltk_data folder")
+
+try:
+    nltk.corpus.wordnet.ensure_loaded()
+except LookupError:
     nltk.download('wordnet', download_dir=nltk_data_path)
 
 try:
