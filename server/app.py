@@ -7,6 +7,10 @@ from auth.routes import auth_bp
 from movies.routes import movies_bp
 from users.routes import users_bp
 
+import nltk
+import os
+
+nltk.data.path.insert(0, os.path.join(os.path.dirname(__file__), "nltk_data"))
 
 def create_app():
     app = Flask(__name__)
