@@ -7,10 +7,6 @@ from auth.routes import auth_bp
 from movies.routes import movies_bp
 from users.routes import users_bp
 
-import nltk
-nltk.download('wordnet')
-nltk.download('omw-1.4')  
-nltk.download('vader_lexicon')
 
 def create_app():
     app = Flask(__name__)
