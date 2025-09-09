@@ -1,22 +1,13 @@
-import os
 import nltk
+import os
 
-# Path relative to core folder
-nltk_data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../nltk_data'))
+# Use a local nltk_data folder inside your project
+nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
+os.makedirs(nltk_data_path, exist_ok=True)
+nltk.data.path.append(nltk_data_path)
 
-if not os.path.exists(nltk_data_path):
-    raise RuntimeError("nltk_data folder not found!")
-
-# Insert the path before any NLTK import
-nltk.data.path.insert(0, nltk_data_path)
-
-# Optional: ensure essential resources are loaded
-try:
-    nltk.corpus.wordnet.ensure_loaded()
-except LookupError:
-    raise RuntimeError("WordNet not found in nltk_data folder")
-
+# Download only vader_lexicon
 try:
     nltk.data.find('sentiment/vader_lexicon')
 except LookupError:
-    raise RuntimeError("VADER lexicon not found in nltk_data folder")
+    nltk.download('vader_lexicon', download_dir=nltk_data_path)
