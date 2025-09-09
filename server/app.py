@@ -12,7 +12,7 @@ from nltk.corpus import wordnet
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 NLTK_PATH = os.path.join(os.path.dirname(__file__), "nltk_data")
-nltk.data.path.insert(0, NLTK_PATH
+nltk.data.path.insert(0, NLTK_PATH)
 
 def create_app():
     app = Flask(__name__)
