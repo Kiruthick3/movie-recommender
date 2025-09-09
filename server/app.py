@@ -7,9 +7,12 @@ from auth.routes import auth_bp
 from movies.routes import movies_bp
 from users.routes import users_bp
 
-import nltk, os 
+import nltk, os
+from nltk.corpus import wordnet
+from nltk.sentiment import SentimentIntensityAnalyzer
 
-nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
+NLTK_PATH = os.path.join(os.path.dirname(__file__), "nltk_data")
+nltk.data.path.insert(0, NLTK_PATH
 
 def create_app():
     app = Flask(__name__)
