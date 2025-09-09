@@ -4,9 +4,6 @@ from utils.security import auth_required, current_user_id
 from bson import ObjectId
 
 import nltk
-import os
-
-nltk.data.path.insert(0, os.path.join(os.path.dirname(__file__), 'nltk_data'))
 
 from nltk.sentiment import SentimentIntensityAnalyzer
 
