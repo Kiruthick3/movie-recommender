@@ -2,7 +2,7 @@ import os
 import nltk
 
 # Tell NLTK where to look for data
-nltk_data_path = os.getenv("NLTK_DATA", "/opt/render/project/src/nltk_data")
+nltk_data_path = os.getenv("NLTK_DATA", "/opt/render/nltk_data")
 nltk.data.path.append(nltk_data_path)
 
 # Optional: auto-download if missing (safeguard for runtime)

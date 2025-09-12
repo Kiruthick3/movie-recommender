@@ -1,3 +1,4 @@
+from core import nltk_config
 from flask import Blueprint, request, abort
 from core.db import col
 from utils.security import auth_required, current_user_id
