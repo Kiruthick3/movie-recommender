@@ -1,8 +1,11 @@
 from flask import Blueprint, request, abort
 from core.db import col
 from utils.security import auth_required, current_user_id
-from nltk.sentiment import SentimentIntensityAnalyzer
 from bson import ObjectId
+
+import nltk
+
+from nltk.sentiment import SentimentIntensityAnalyzer
 
 users_bp = Blueprint('users', __name__)
 _sia = SentimentIntensityAnalyzer()
